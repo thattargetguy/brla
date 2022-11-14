@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<title>T1013 - BRLA Sheets</title>
+	<link rel="icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="jspdf.min.js"></script>
+	<script type="text/javascript" src="index.js" defer></script>
+	<script type="text/javascript">
+		const help = function* () {
+			const list = [
+                "Baffles happen when you scan product that isn't located in the location you're pulling from. Ghosts represent product that was supposed to be in a location, but you weren't able to find.",
+                
+				"Each location in the backroom has a grouping. This can be openstock, lower casepack, or upper casepack. The grouping determines how much product gets pulled in your Move batches. You can group locations using Backroom Location Management via myWork.",
+
+                "Locations grouped as \"openstock\" will only have you pull as much product as needed. Locations grouped as \"casepack\" will have you pull the amount marked on the casepack for however many casepacks are needed.",
+
+                "To drop a One for One batch, scan the product from the fillgroup you wish to pull, click on EXF, then \"Fill \[fillgroup\]\" and select One for One. One for Ones will replace autofills for their fillgroup when dropped",
+
+                "Auditing locations is a reliable way to improve Backroom Location Accuracy. Simply load up the Audit app on your Zebra, scan a backroom location, and scan product in said location to update counts.",
+
+                "Baffles happen when you scan product that isn't located in the location you're pulling from. Ghosts represent product that was supposed to be in a location, but you weren't able to find.",
+
+                "When backstocking, make sure to pay attention to fillgroups. Each aisle in the backroom has a designated fillgroup, or two, marked on the end of the aisle. Only locate product from those fillgroups in their respective aisles.",
+
+                "It's always a good idea to make sure the pick label is facing outward when backstocking casepacks. The label with the product barcode can be peeled off for this reason, allowing you to place it wherever convenient.",
+
+                "About to clock out for the day? Try to spend a minute or two cleaning up the area around your aisle. Keeping the backroom clean not only makes it easier to move around in, but helps keep everyone safe from potential hazards.",
+
+                "When pulling a product for a guest, make sure to take that product out of location with myWork. Just scan the product, tap the name, hit \"Take\", and scan one of the locations listed, then enter the quantity you're taking.",
+
+                "Baffles happen when you scan product that isn't located in the location you're pulling from. Ghosts represent product that was supposed to be in a location, but you weren't able to find.",
+
+                "SFQ stands for Salesfloor Quantity, the amount of product that is on the floor. SFC stands for Salesfloor Capacity, the amount of product that will fit in a location. OH stands for On Hand, the amount of product we have in store.",
+
+                "Code Green is for an injury to a guest or Team Member. Code Yellow is for a missing child. Code Red is for a fire. All codes are announced over walkie three times, along with a location, description, or both.",
+
+                "Help ensure that exit routes are unobstructed such as by materials or equipment. It is illegal to block a fire exit, even for just a short period of time. No pallets, vehicles, freight, or other such things may be placed in a fire aisle.",
+			];
+			while(true) yield* list;
+		}();
+	</script>
+</head>
+<body>
+	<h2>BRLA Sheets</h2>
+	<div id="container-right"></div>
+	<div id="container-left">
+		<img class="example" src="example.png" />
+		<form name="form">
+			This tool will create a sheet for each backroom aisle in your store.
+			<br />
+			<h3>Available options:</h3>
+			<ul>
+			    <li>
+					<label><input type="checkbox" name="multi" checked /> Create a PDF for each tier of BRLA (green, yellow, red)</label>
+				</li>
+				<li>
+				    <label><input type="checkbox" name="bulk" checked /> Create sheets for bulk (99B) aisles</label>
+				</li>
+				<li>
+					<label><input type="checkbox" name="zigzag" /> Select the backroom aisles you want to split by section</label>
+					<div style="font-size: 13px; margin-left: 22px">[check this if you have valleys in your backroom that share the same aisle number]</div>
+				</li>
+				<li>
+					<label><input type="checkbox" name="arrow" /> Add an arrow next to BRLA to indicate relative change</label>
+				</li>
+			</ul>
+			<h3>Complete the following steps:</h3>
+			<ol>
+				<li>Head to <strong><a href="https://greenfield.target.com/card/70583" target="_blank">T1013: BRLA Sheets</a></strong></li>
+				<li>Click <strong>Filter By</strong> and filter by your Store</li>
+				<li>(Optional) You may also filter by Backroom and Backroom Aisle to show only those you wish to print</li>
+				<li>Click on the three vertical dots near the upper-right corner and select <strong>Export to CSV</strong></li>
+				<li>
+					<label class="export">Click here to select the exported CSV
+						<input name="import" type="file" accept=".csv" style="display: none" multiple />
+					</label>
+				</li>
+			</ol>
+		</form>
+	</div>
+	<div id="modal">
+	    <div id="modal-content"></div>
+	</div>
+</body>
+</html>
