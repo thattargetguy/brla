@@ -11,7 +11,7 @@ class BRLA {
                 return alert(`You've selected the wrong file: ${file.name}`);
             let response = await new Response(file).text();
             form.set("date", [/Begin:\s(\d{4}\-\d{2}\-\d{2})/.exec(response)[1], /End:\s(\d{4}\-\d{2}\-\d{2})/.exec(response)[1]].join(" to "));
-            response = response.split(/\nExported/g)[0].split(/\n/).slice(2).filter(value => value.length > 0);
+            response = response.split(/\nExported/g)[0].split(/\n/).slice(2).filter(value => value.length > 1);
             let backrooms = this.load(response, new Map()), list = new Map();
             if(!backrooms)
                 return;
