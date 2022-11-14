@@ -10,7 +10,7 @@ class BRLA {
             if(!file || !/T1013_ BRLA Sheets/.test(file.name))
                 return alert(`You've selected the wrong file: ${file.name}`);
             let response = await new Response(file).text();
-            form.set("date", [/(\d{4}\-\d{2}\-\d{2})\n/.exec(response)[1], /End:\s(\d{4}\-\d{2}\-\d{2})/.exec(response)[1]].join(" to "));
+            form.set("date", [/Begin:\s(\d{4}\-\d{2}\-\d{2})/.exec(response)[1], /End:\s(\d{4}\-\d{2}\-\d{2})/.exec(response)[1]].join(" to "));
             response = response.split(/\nExported/g)[0].split(/\n/).slice(2).filter(value => value.length > 0);
             let backrooms = this.load(response, new Map()), list = new Map();
             if(!backrooms)
